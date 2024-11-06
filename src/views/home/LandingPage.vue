@@ -19,12 +19,13 @@
         <v-row align="center" justify="center" class="mt-5">
           <v-col cols="12" sm="12" md="12" lg="2">
             <v-text-field
+                v-model="resi"
                 label="Input no. resi"
                 hide-details="auto"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="12" md="12" lg="1">
-            <v-btn>Lacak</v-btn>
+            <v-btn @click="cekResi">Lacak</v-btn>
           </v-col>
         </v-row>
 
@@ -41,6 +42,7 @@
 export default {
   data() {
     return {
+      resi: "",
       features: [
         { title: 'Feature One', description: 'Description of feature one.' },
         { title: 'Feature Two', description: 'Description of feature two.' },
@@ -52,6 +54,10 @@ export default {
     login() {
       let router = this.$router
       router.push('/login')
+    },
+    cekResi() {
+      let router = this.$router
+      router.push('/detail-barang/' + this.resi);
     }
   }
 };

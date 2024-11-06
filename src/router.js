@@ -36,6 +36,11 @@ const router = new Router({
           name: "LandingPage",
           path: "landing-page",
           component: () => import("@/views/home/LandingPage.vue")
+        },
+        {
+          name: "DetailBarang",
+          path: "detail-barang/:resi",
+          component: () => import("@/views/home/DetailPengiriman.vue")
         }
       ]
     },

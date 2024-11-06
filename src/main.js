@@ -13,7 +13,7 @@ import VueQrcodeReader from 'vue-qrcode-reader'
 import axios from "axios";
 
 axios.interceptors.response.use(
-    document.title = "E-Monevin Hamzanwadi",
+    document.title = "Inventory",
     response => {
       window.location.reload()
       return response
