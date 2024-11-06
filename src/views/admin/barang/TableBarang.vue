@@ -24,7 +24,7 @@
                   <v-container>
                     <v-row>
                       <v-col cols="12" sm="12" md="12" lg="12">
-                        <v-text-field v-model="editedItem.nama" label="Nama Barang"></v-text-field>
+                        <v-text-field v-model="editedItem.nama_barang" label="Nama Barang"></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="12" md="12" lg="6">
                         <v-select
@@ -57,7 +57,7 @@
           </v-toolbar>
         </template>
         <template v-slot:item.actions="{ item }">
-          <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+<!--          <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>-->
           <v-icon small class="mr-2" @click="editItem(item)">mdi-file-eye</v-icon>
           <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
         </template>
@@ -74,28 +74,19 @@ export default {
   name: "DatatablesCRUDActions",
 
   data: () => ({
+    barang: {},
     sopir: {},
-    customer:[
-      {
-        id: 1,
-        nama: "Zidan",
-      },
-      {
-        id: 1,
-        nama: "Zubaidah",
-      }
-
-    ],
+    customer:[],
     selectCustomer:{},
     selectSpoir:{},
     dialog: false,
     headers: [
       { text: "ID", align: "start", sortable: false, value: "id" },
-      { text: "Nama Barang", value: "nama" },
-      { text: "Nama Penerima", value: "penerima" },
-      { text: "Tujuan", value: "tujuan" },
-      { text: "Nama Sopir", value: "sopir" },
-      { text: "Status", value: "status" },
+      { text: "Nama Barang", value: "nama_barang" },
+      { text: "Nama Penerima", value: "customer.nama" },
+      { text: "Tujuan", value: "customer.alamat" },
+      { text: "Nama Sopir", value: "sopir.nama" },
+      { text: "Status", value: "status_pengiriman" },
       { text: "Actions", value: "actions", sortable: false }
     ],
     desserts: [],
@@ -116,9 +107,10 @@ export default {
   },
 
   created() {
-    this.initialize();
+    // this.initialize();
     this.getAllCustomer();
     this.getAllSopir();
+    this.getAllBarang();
   },
 
   methods: {
@@ -174,6 +166,12 @@ export default {
     getAllSopir() {
       this.$http.get("/admin/sopirs").then(response => {
         this.sopir = response.data.data
+      })
+    },
+    getAllBarang() {
+      this.$http.get("/admin/barangs").then(response => {
+        this.desserts = response.data.data
+        console.log(response.data.data)
       })
     }
   }

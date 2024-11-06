@@ -90,7 +90,7 @@ export default {
   },
 
   created() {
-    this.initialize();
+    // this.initialize();
     this.getAllItems();
   },
 
@@ -149,14 +149,18 @@ export default {
         Object.assign(this.desserts[this.editedIndex], this.editedItem);
 
       } else {
-        this.desserts.push(this.editedItem);
+        // this.desserts.push(this.editedItem);
+
+        this.$http.post("/admin/oprator", this.editedItem).then((response) => {
+          this.desserts.push(response.data.data);
+        })
       }
       this.close();
     },
 
     getAllItems() {
-      this.$http.get('/admin/customers').then((response) => {
-        this.data = response.data.data;
+      this.$http.get('/admin/users?role=OPRATOR').then((response) => {
+        this.desserts = response.data.data;
       })
     }
   }

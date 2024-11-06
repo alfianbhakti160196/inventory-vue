@@ -58,7 +58,7 @@
         </template>
         <template v-slot:item.actions="{ item }">
           <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
-          <v-icon small class="mr-2" @click="deleteItem(item)">mdi-printer</v-icon>
+          <v-icon small class="mr-2" @click="toQR(item.id)">mdi-printer</v-icon>
           <v-icon small class="mr-2" @click="deleteItem(item)">mdi-delete</v-icon>
         </template>
         <template v-slot:no-data>
@@ -71,6 +71,7 @@
 </template>
 
 <script>
+
 export default {
   name: "DatatablesCRUDActions",
 
@@ -148,6 +149,11 @@ export default {
         })
       }
       this.close();
+    },
+
+    toQR(id) {
+      let router = this.$router
+      router.push('/admin/sopir/qrcode/' + id);
     }
   },
   components: {

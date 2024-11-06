@@ -68,7 +68,7 @@
       </template>
 
       <v-list class="pa-8">
-        <v-btn block depressed color="secondary" class="mt-4 py-4">Logout</v-btn>
+        <v-btn block depressed color="secondary" class="mt-4 py-4" @click="logout">Logout</v-btn>
       </v-list>
     </v-menu>
   </v-app-bar>
@@ -104,6 +104,11 @@ export default {
     ...mapMutations({
       setSidebarDrawer: "SET_SIDEBAR_DRAWER",
     }),
+
+    logout() {
+      this.$store.dispatch('logout')
+      this.$router.replace('/login')
+    },
 
   },
   watch: {

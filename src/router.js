@@ -91,7 +91,7 @@ const router = new Router({
         },
         {
           name: "SopirQrcode",
-          path: "sopir/qrcode",
+          path: "sopir/qrcode/:id",
           component: () => import("@/views/admin/sopir/Qrcode.vue"),
           props: true,
           meta: {
