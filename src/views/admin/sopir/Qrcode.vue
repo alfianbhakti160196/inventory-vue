@@ -12,11 +12,12 @@
         pdf-format="a4"
         pdf-orientation="landscape"
         pdf-content-width="800px"
+        :margin="20"
 
         ref="html2Pdf"
     >
       <section slot="pdf-content">
-        <v-card class="center pa-12 text-center">
+        <v-card class="center p-12 text-center">
           <qr-code :text="$route.params.id"></qr-code>
         </v-card>
       </section>
