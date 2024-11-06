@@ -698,7 +698,8 @@ const router = new Router({
 
 // For Axios
 router.beforeEach((to, from, next) => {
-  router.app.$http.defaults.baseURL = "https://api.bintangslaparangsejati.site";
+  router.app.$http.defaults.baseURL = "https://api.bintangslaparangsejati.site/api/v1";
+  // router.app.$http.defaults.baseURL = "http://localhost:8090/api/v1";
   // router.app.$http2.defaults.baseURL = process.env.VUE_APP_API_BASE_URL2;
   // router.app.$http.defaults.baseURL = 'http://localhost:28082';
   // router.app.$http.defaults.baseURL = 'https://ios.ftuhamzanwadi.ac.id';
