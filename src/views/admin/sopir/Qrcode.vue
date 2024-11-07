@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div class="center">
+    <qr-code :text="$route.params.id"></qr-code>
+    <div class="pt-12"></div>
     <vue-html2pdf
         :show-layout="false"
         :float-layout="true"
