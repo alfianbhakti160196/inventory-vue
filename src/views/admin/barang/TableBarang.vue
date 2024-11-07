@@ -86,6 +86,7 @@ export default {
       { text: "Nama Penerima", value: "customer.nama" },
       { text: "Tujuan", value: "customer.alamat" },
       { text: "Nama Sopir", value: "sopir.nama" },
+      { text: "No. Resi", value: "no_resi" },
       { text: "Status", value: "status_pengiriman" },
       { text: "Actions", value: "actions", sortable: false }
     ],
